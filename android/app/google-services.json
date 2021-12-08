@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "548067925893",
+    "project_id": "bbdr-eats",
+    "storage_bucket": "bbdr-eats.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548067925893:android:6c93a2a570703a68e2aeec",
+        "android_client_info": {
+          "package_name": "com.example.babdraeats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "548067925893-ree77qd7lv8cv8sf4a8urtbbtlkoj91l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.babdraeats",
+            "certificate_hash": "b09c84bfa06c25071f7581af6802c6d0ffcbbcc5"
+          }
+        },
+        {
+          "client_id": "548067925893-1cj8h7mm0n81q2u44lp4ikn9qq3pe591.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG4kzUgXY4INMisD0nERiK0pAiQxoC7Es"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "548067925893-1cj8h7mm0n81q2u44lp4ikn9qq3pe591.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "548067925893-cjfdokteedbpkem0h3md9qvtjkbhok63.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.babdra-eat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
