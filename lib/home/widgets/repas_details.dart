@@ -1,9 +1,7 @@
 import 'package:babdraeats/home/service/add_panier.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../bottom_bar.dart';
 import '../cart.dart';
 
 class RepasView extends StatefulWidget {
