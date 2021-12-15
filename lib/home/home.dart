@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:line_icons/line_icons.dart';
 
+import 'cart.dart';
 import 'theme/colors.dart';
 import 'widgets/categories_widget.dart';
 import 'widgets/custom_slider.dart';
@@ -54,8 +55,8 @@ class _HomePageState extends State<HomePage> {
               Center(
                 child: IconButton(
                   onPressed: () {
-                    /*Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (_) => CartScreen()));*/
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => CartScreen()));
                   },
                   icon: Container(
                     height: 32,

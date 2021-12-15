@@ -1,0 +1,83 @@
+
+  static final Marker _kGooglePlexMarker = Marker(
+    markerId: MarkerId('_kGooglePlexMarker'),
+    infoWindow: InfoWindow(title: 'Google Plex'),
+    icon: BitmapDescriptor.defaultMarker,
+    position: LatLng(37.42796133580664, -122.085749655962),
+  );
+
+  static final Marker _kLakerMarker = Marker(
+    markerId: MarkerId('_kLakerMarker'),
+    infoWindow: InfoWindow(title: 'Lake'),
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+    position: LatLng(37.43296265331129, -122.08832357078792),
+  );
+
+  static final Polyline _kPolyline = Polyline(
+    polylineId: PolylineId("_kPolyline"),
+    points: [
+      LatLng(37.42796133580664, -122.085749655962),
+      LatLng(37.43296265331129, -122.08832357078792)
+    ],
+    width: 5,
+  );
+
+  static final Polygon _kPoligon = Polygon(
+    polygonId: PolygonId("_kPoligon"),
+    points: [
+      LatLng(37.43296265331129, -122.08832357078792),
+      LatLng(37.42796133580664, -122.085749655962),
+      LatLng(37.418, -122.092),
+      LatLng(37.435, -122.092),
+    ],
+    strokeWidth: 5,
+    fillColor: Colors.transparent,
+  );
+
+
+  static final CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
+
+void setPolygon() {
+    final String polygonIdVal = 'polydon_$_polygonIdCounter';
+    _polygonIdCounter++;
+
+    _polygons.add(
+      Polygon(
+        polygonId: PolygonId(polygonIdVal),
+        points: polygonLatLngs,
+      ),
+    );
+  }
+  
+  void setPolyline(List<PointLatLng> points) {
+    final String polylineIdVal = 'polyline_$_polylineIdCounter';
+    _polylineIdCounter++;
+
+    _polylines.add(
+      Polyline(
+        polylineId: PolylineId(polylineIdVal),
+        width: 2,
+        color: Color(0xFF033D69),
+        points: points
+            .map((point) => LatLng(point.latitude, point.longitude))
+            .toList(),
+      ),
+    );
+  }
+
+  void setMarker(LatLng point) {
+    setState(() {
+      _markers.add(
+        Marker(
+          markerId: MarkerId(widget.name.toString()),
+          position: point,
+          infoWindow: InfoWindow(title: widget.name.toString()),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        ),
+      );
+    });
+  }

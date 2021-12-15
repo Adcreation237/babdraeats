@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'services/auth_services.dart';
 import 'wrapper.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setSystemUIOverlayStyle(
@@ -23,8 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AuthService>.value(value: AuthService(),),
-        StreamProvider<User?>.value(value: AuthService().user, initialData: null)
+        ChangeNotifierProvider<AuthService>.value(
+          value: AuthService(),
+        ),
+        StreamProvider<User?>.value(
+            value: AuthService().user, initialData: null)
       ],
       child: MaterialApp(
         title: 'Babdra Eats',

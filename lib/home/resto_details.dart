@@ -542,7 +542,14 @@ class _RestoDetailsState extends State<RestoDetails> {
                                               onPressed: () {
                                                 Navigator.of(context).push(
                                                   MaterialPageRoute(
-                                                    builder: (_) => MapsView(),
+                                                    builder: (_) => MapsView(
+                                                      lat: double.parse(snapshot
+                                                          .data!
+                                                          .docs[index]['lat']),
+                                                      lng: double.parse(snapshot
+                                                          .data!
+                                                          .docs[index]['long']), name: snapshot.data!.docs[index]['nomEts'],
+                                                    ),
                                                   ),
                                                 );
                                               },

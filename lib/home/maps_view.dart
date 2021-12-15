@@ -1,14 +1,22 @@
 import 'dart:async';
-
+import 'package:babdraeats/home/service/location_service.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapsView extends StatefulWidget {
+  final double lat;
+  final double lng;
+  final String name;
+  const MapsView(
+      {Key? key, required this.lat, required this.lng, required this.name})
+      : super(key: key);
+
   @override
-  State<MapsView> createState() => MapsViewState();
+  _MapsViewState createState() => _MapsViewState();
 }
 
-class MapsViewState extends State<MapsView> {
+class _MapsViewState extends State<MapsView> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -16,32 +24,46 @@ class MapsViewState extends State<MapsView> {
     zoom: 14.4746,
   );
 
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  @override
+  void initState() {
+    super.initState();
+    _goToTheLake();
+  }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF033D69),
+        title: Text(
+          "Babdra Eats",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.normal,
+        markers: {
+          Marker(
+            markerId: MarkerId('_kLakerMarker'),
+            infoWindow: InfoWindow(title: widget.name),
+            icon: BitmapDescriptor.defaultMarker,
+            position: LatLng(widget.lat, widget.lng),
+          ),
+        },
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
       ),
     );
   }
 
   Future<void> _goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        bearing: 192.8334901395799,
+        target: LatLng(widget.lat, widget.lng),
+        tilt: 59.440717697143555,
+        zoom: 16.151926040649414)));
   }
 }

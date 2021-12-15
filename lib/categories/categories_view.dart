@@ -1,3 +1,4 @@
+import 'package:babdraeats/home/cart.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -32,8 +33,8 @@ class _CategoriesPagesState extends State<CategoriesPages> {
               Center(
                 child: IconButton(
                   onPressed: () {
-                    /*Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (_) => CartScreen()));*/
+                    Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) => CartScreen()));
                   },
                   icon: Container(
                     height: 32,
