@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'package:babdraeats/categories/categories_view.dart';
+import 'package:babdraeats/commandes/commandes.dart';
 import 'package:babdraeats/home/home.dart';
 import 'package:babdraeats/profil/view_profil.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,11 +40,11 @@ class _BottomBarState extends State<BottomBar> {
 
   int? selectIndex;
 
-  List<Widget> optionPage = <Widget>[ 
+  List<Widget> optionPage = <Widget>[
     HomePage(),
     CategoriesPages(),
     Text("Bientôt disponible"),
-    Text("Bientôt disponible"),
+    CommandeScreen(),
     ViewProfil(),
   ];
 
@@ -59,7 +60,7 @@ class _BottomBarState extends State<BottomBar> {
     super.initState();
     if (widget.pages == null) {
       selectIndex = 0;
-    } else{
+    } else {
       selectIndex = widget.pages;
     }
   }

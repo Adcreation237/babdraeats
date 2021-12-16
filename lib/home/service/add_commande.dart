@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
 class AddCommandes {
-   String Panierid = "";
+  String Panierid = "";
   DateTime now = DateTime.now();
   String? dateCom, heureCom;
   String generateId({
@@ -27,17 +27,16 @@ class AddCommandes {
   }
 
   void addCommandes(
-      String iduser,
-      String prix,
-      String nom,
+    String iduser,
+    String prix,
+    String nom,
   ) async {
-    
     dateCom = DateFormat.yMMMd().format(now);
     heureCom = DateFormat.Hms().format(now);
     Panierid = generateId();
     CollectionReference users =
         FirebaseFirestore.instance.collection('commandes');
-    await users.doc(iduser.toString()).set({
+    await users.doc(Panierid.toString()).set({
       'idcom': Panierid.toString(),
       'iduser': iduser.toString(),
       'prix': prix.toString(),

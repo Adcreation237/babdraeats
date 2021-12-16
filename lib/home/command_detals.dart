@@ -1,5 +1,8 @@
+import 'package:babdraeats/profil/favorites.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import 'service/add_commande.dart';
 
 class CommandDetails extends StatefulWidget {
   final String idpanier;
@@ -82,16 +85,21 @@ class _CommandDetailsState extends State<CommandDetails> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          AddCommandes().addCommandes(
+                              currentUser!.uid,
+                              prixcom.toString(),
+                              snapshot.data!.docs[index]['nom']);
+                        },
                         child: Container(
-                          height: 40,
+                          height: 50,
                           width: size.width,
                           decoration: BoxDecoration(
                               color: Colors.deepOrangeAccent,
                               borderRadius: BorderRadius.circular(20)),
                           child: Center(
                             child: Text(
-                              "Commandez au de ${prixcom}",
+                              "Commandez au prix de ${prixcom}",
                               textAlign: TextAlign.center,
                               style:
                                   TextStyle(color: Colors.white, fontSize: 18),
